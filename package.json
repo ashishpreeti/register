@@ -1,19 +1,23 @@
 {
-  "name": "register",
+  "name": "library",
   "version": "1.0.0",
-  "description": "Angular Competency Test for MoJ",
-  "main": "index.js",
+  "description": "",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ashishpreeti/register.git"
-  },
-  "author": "Ash",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ashishpreeti/register/issues"
+  "dependencies": {
+    "express": "^4.14.0"
   },
-  "homepage": "https://github.com/ashishpreeti/register#readme"
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-jscs": "^4.0.0",
+    "gulp-jshint": "^2.0.1",
+    "gulp-nodemon": "^2.1.0",
+    "jshint": "^2.9.2",
+    "jshint-stylish": "^2.2.0"
+  }
 }
