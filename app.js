@@ -1,10 +1,7 @@
 var express = require('express');
-var mongodb = require('mongodb').MongoClient;
-
 var app = express();
-
+var mongodb = require('mongodb').MongoClient;
 var port = process.env.PORT || 5000;
-
 
 app.use(express.static('public'));
 app.use(express.static('src/views'));
@@ -32,9 +29,6 @@ app.get('/register', function(req, res){
 
 });
 
-
-
 app.listen(port, function(){
     console.log('running server on port ' + port);
 });
-
