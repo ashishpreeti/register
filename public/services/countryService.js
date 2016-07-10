@@ -2,7 +2,8 @@ function countryService($http, $q) {
 
     var getCountryList = function () {
 
-        var def = $q.defer();
+        var def = $q.defer(),
+            URL = 'https://restcountries.eu/rest/v1/region/Europe';
 
         function successCallback(response) {
             def.resolve(response);
@@ -13,7 +14,7 @@ function countryService($http, $q) {
             def.reject(err);
         }
 
-        $http.get('https://restcountries.eu/rest/v1/region/Europe')
+        $http.get(URL)
             .then(successCallback, errorCallback);
 
 
