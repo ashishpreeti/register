@@ -1,3 +1,4 @@
 var angular = require('angular');
 angular.module('registerApp', ['registerApp'])
-    .controller('registerCtrl', ['$scope', require('./controllers/registerCtrl')]);
+    .service('countryService', ['$http', '$q', require('./services/countryService')])
+    .controller('registerCtrl', ['$scope', 'countryService', require('./controllers/registerCtrl')]);

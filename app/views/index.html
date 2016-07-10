@@ -1,68 +1,74 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="registerApp">
-	<head>
-		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<meta charset="utf-8">
-		<title>Storystrap Template</title>
-		<meta name="generator" content="Bootply" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link href="css/styles.css" rel="stylesheet">
-	</head>
-	<body>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Storystrap Template</title>
+    <meta name="generator" content="Bootply" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="css/styles.css" rel="stylesheet">
+    <script src="bundle.js"></script>
+</head>
+<body>
 <header class="navbar navbar-bright navbar-fixed-top" role="banner">
-  <div class="container">
-    <div class="navbar-header">
-      <a href="/" class="navbar-brand">Home</a>
+    <div class="container">
+        <div class="navbar-header">
+            <a href="/" class="navbar-brand">Home</a>
+        </div>
     </div>
-  </div>
 </header>
 
 
 <div class="container" data-ng-controller="registerCtrl">
-  <h2>Some Useful Government Service</h2>
-  <form action="register" target="_blank" method="post" role="form" class="form-inline">
-      <section >
-          <div class="col-md-12">
-              <form class="form-horizontal" data-ng-submit="create()" novalidate>
-                  <fieldset>
-                      <div class="form-group">
-                          <label class="control-label" for="name">Name: </label>
-                              <input type="text" data-ng-model="name" id="name" class="form-control" placeholder="Name" aria-required="true">
-                      </div>
-                      <div class="form-group">
-                          <label>Sex:
-                              <input type="radio" name="gender" value="male" checked> Male
-                              <input type="radio" name="gender" value="female"> Female
-                          </label>
-                      </div>
+    <h2>Some Useful Government Service</h2>
+    <form action="register" target="_blank" method="post" role="form" class="form-inline">
+        <section >
+            <div class="col-md-12">
+                <form class="form-horizontal" data-ng-submit="create()" novalidate>
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="control-label" for="name">Name: </label>
+                            <input type="text" data-ng-model="name" id="name" class="form-control" placeholder="Name" aria-required="true">
+                        </div>
+                        <div class="form-group">
+                            <label>Sex:
+                                <input type="radio" name="gender" value="male" checked> Male
+                                <input type="radio" name="gender" value="female"> Female
+                            </label>
+                        </div>
 
-                      <div class="form-group">
-                          <label>Age:
-                              <input type="text"  placeholder="Age" name="name" aria-required="true" maxlength="3" size="3"></label>
-                      </div>
+                        <div class="form-group">
+                            <label>Age:
+                                <input type="text"  placeholder="Age" name="age"   data-ng-model="age" aria-required="true" maxlength="3" size="3"></label>
+                        </div>
 
-                      <div class="form-group">
-                          <label>
-                              Country :
-                              <select  class="selectpicker" name="country" aria-required="true">
-                                  <option value="selectCountry" selected>Choose Country</option>
-                              </select>
-                          </label>
-                      </div>
-                      <div class="form-group">
-                          <input type="submit" class="btn btn-default" value="Apply">
-                      </div>
-                      <div data-ng-show="error" class="text-danger">
-                          <strong data-ng-bind="error"></strong>
-                      </div>
-                  </fieldset>
-              </form>
-          </div>
-      </section>
-  </form>
+
+                        <div class="form-group">
+                            <label>
+                                Country :
+                                <!--<select   ng-model="country" ng-model-options="{{country.name}}" name="country" aria-required="true">-->
+                                <!--<option value="selectCountry" selected>Choose Country</option>-->
+                                <!--</select>-->
+                                <select class="selectpicker">
+                                    <option value="">-- Select a Country --</option>
+                                    <option ng-repeat="country in countries">{{country.name}}</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-default" value="Apply">
+                        </div>
+                        <div data-ng-show="error" class="text-danger">
+                            <strong data-ng-bind="error"></strong>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </section>
+    </form>
 </div>
-	</body>
-    <script src="jquery/dist/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="bundle.js"></script>
+</body>
+<script src="jquery/dist/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
 </html>
