@@ -26,7 +26,7 @@
             <div class="col-md-12">
                 <form class="form-horizontal" data-ng-submit="create()" novalidate>
                     <fieldset>
-                        <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+                        <div class="form-group">
                             <label class="control-label" for="name">Name</label>
                             <input type="text" id="name" name="name" class="form-control" data-ng-model="user.name" required>
                             <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">Name is required.</p>
@@ -41,7 +41,7 @@
                         </div>
 
 
-                        <div class="form-group" ng-class="{ 'has-error' : userForm.age.$invalid && !userForm.age.$pristine }">
+                        <div class="form-group">
                             <label class="control-label" for="age">Age</label>
                             <input type="text" id="age" name="age" class="form-control" data-ng-model="user.age" required maxlength="3" ng-minlength="1" ng-maxlength="3" size="3">
                             <p ng-show="userForm.age.$invalid && !userForm.age.$pristine" class="help-block">Age is required.</p>
@@ -51,11 +51,12 @@
                         <div class="form-group">
                             <label>
                                 Country :
-                                <select class="selectpicker">
+                                <select  required="required" class="selectpicker" data-ng-model="country">
                                     <option value="">-- Select a Country --</option>
-                                    <option ng-repeat="country in countries">{{country.name}}</option>
+                                    <option value="{{country.name}}" ng-repeat="country in countries">{{country.name}}</option>
                                 </select>
                             </label>
+                            <p ng-show="userForm.country.$invalid && !userForm.country.$pristine" class="help-block">Select a country.</p>
                         </div>
                         <div>
 
