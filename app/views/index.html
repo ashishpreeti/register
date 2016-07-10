@@ -21,15 +21,18 @@
 
 <div class="container" data-ng-controller="registerCtrl">
     <h2>Some Useful Government Service</h2>
-    <form action="register" target="_blank" method="post" role="form" class="form-inline">
+    <form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate class="form-inline">
         <section >
             <div class="col-md-12">
                 <form class="form-horizontal" data-ng-submit="create()" novalidate>
                     <fieldset>
-                        <div class="form-group">
-                            <label class="control-label" for="name">Name: </label>
-                            <input type="text" data-ng-model="name" id="name" class="form-control" placeholder="Name" aria-required="true">
+                        <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+                            <label class="control-label" for="name">Name</label>
+                            <input type="text" id="name" name="name" class="form-control" data-ng-model="user.name" required>
+                            <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">Name is required.</p>
                         </div>
+
+
                         <div class="form-group">
                             <label>Sex:
                                 <input type="radio" name="gender" value="male" checked> Male
@@ -37,26 +40,26 @@
                             </label>
                         </div>
 
-                        <div class="form-group">
-                            <label>Age:
-                                <input type="text"  placeholder="Age" name="age"   data-ng-model="age" aria-required="true" maxlength="3" size="3"></label>
+
+                        <div class="form-group" ng-class="{ 'has-error' : userForm.age.$invalid && !userForm.age.$pristine }">
+                            <label class="control-label" for="age">Age</label>
+                            <input type="text" id="age" name="age" class="form-control" data-ng-model="user.age" required maxlength="3" ng-minlength="1" ng-maxlength="3" size="3">
+                            <p ng-show="userForm.age.$invalid && !userForm.age.$pristine" class="help-block">Age is required.</p>
                         </div>
 
 
                         <div class="form-group">
                             <label>
                                 Country :
-                                <!--<select   ng-model="country" ng-model-options="{{country.name}}" name="country" aria-required="true">-->
-                                <!--<option value="selectCountry" selected>Choose Country</option>-->
-                                <!--</select>-->
                                 <select class="selectpicker">
                                     <option value="">-- Select a Country --</option>
                                     <option ng-repeat="country in countries">{{country.name}}</option>
                                 </select>
                             </label>
                         </div>
-                        <div class="form-group">
-                            <input type="submit" class="btn btn-default" value="Apply">
+                        <div>
+
+                            <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Apply</button>
                         </div>
                         <div data-ng-show="error" class="text-danger">
                             <strong data-ng-bind="error"></strong>
