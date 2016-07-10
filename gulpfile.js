@@ -15,14 +15,14 @@ gulp.task('style', function () {
 });
 
 gulp.task('serve', ['style'], function () {
-   var options = {
-       script : 'app.js',
-       delayTime : 1,
-       env : {
-           'PORT' : 5000
-       },
-       watch : jsFiles
-   };
+    var options = {
+        script : 'app.js',
+        delayTime : 1,
+        env : {
+            'PORT' : 5000
+        },
+        watch : jsFiles
+    };
     return nodemon(options)
         .on('restart', function (ev) {
             console.log("Restarting..."+ ev);

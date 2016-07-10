@@ -3,8 +3,9 @@ var app = express();
 var mongodb = require('mongodb').MongoClient;
 var port = process.env.PORT || 5000;
 
+app.use(express.static('app/views'));
 app.use(express.static('public'));
-app.use(express.static('src/views'));
+app.use(express.static('node_modules'));
 app.get('/', function(req, res){
     res.send('Hello World');
 });
@@ -21,10 +22,9 @@ app.get('/register', function(req, res){
     mongodb.connect(url, function (err, db) {
         var collection = db.collection('register');
         collection.insertOne(row, function (err, results) {
-            console.log("sending the data to db here"+ JSON.stringify(results));
             res.send(results);
             db.close();
-        } )
+        });
     } );
 
 });
