@@ -2,8 +2,17 @@ var gulp = require('gulp');
 var jshint = require('gulp-jshint');
 var jscs = require('gulp-jscs');
 var nodemon = require('gulp-nodemon');
+var browserify = require('browserify');
+var source = require('vinyl-source-stream');
 
 var jsFiles = ['*.js'];
+
+gulp.task('browserify', function () {
+    return browserify('./public/main.js')
+        .bundle()
+        .pipe(source('bundle.js'))
+        .pipe(gulp.dest('./dist'));
+});
 
 gulp.task('style', function () {
     return gulp.src(jsFiles)
@@ -14,7 +23,7 @@ gulp.task('style', function () {
         .pipe(jscs());
 });
 
-gulp.task('serve', ['style'], function () {
+gulp.task('serve', ['style', 'browserify'], function () {
     var options = {
         script : 'app.js',
         delayTime : 1,
@@ -25,6 +34,6 @@ gulp.task('serve', ['style'], function () {
     };
     return nodemon(options)
         .on('restart', function (ev) {
-            console.log("Restarting..."+ ev);
-        })
+            console.log('Restarting...'+ ev);
+        });
 });

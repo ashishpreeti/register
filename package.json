@@ -19,11 +19,11 @@
   "devDependencies": {
     "browserify": "^13.0.1",
     "gulp": "^3.9.1",
-    "gulp-browserify": "^0.5.1",
     "gulp-jscs": "^4.0.0",
     "gulp-jshint": "^2.0.1",
     "gulp-nodemon": "^2.1.0",
     "jshint": "^2.9.2",
-    "jshint-stylish": "^2.2.0"
+    "jshint-stylish": "^2.2.0",
+    "vinyl-source-stream": "^1.1.0"
   }
 }
