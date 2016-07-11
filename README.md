@@ -7,5 +7,5 @@ To install all the dependencies
 To run the application
 - npm start
 
-To run the unit tests
+To run the unit tests. Run npm start before running test. This will create the bundle.js
 - npm test
