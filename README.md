@@ -2,10 +2,10 @@
 
 Run following commands
 To install all the dependencies 
-npm install
+- npm install
 
 To run the application
-npm start
+- npm start
 
 To run the unit tests
-npm test
+- npm test
