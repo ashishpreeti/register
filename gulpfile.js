@@ -5,7 +5,7 @@ var nodemon = require('gulp-nodemon');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 
-var jsFiles = ['*.js'];
+var jsFiles = ['*.js', '*.html'];
 
 gulp.task('browserify', function () {
     return browserify('./public/main.js')

@@ -6,25 +6,17 @@
     <title>Storystrap Template</title>
     <meta name="generator" content="Bootply" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
     <script src="bundle.js"></script>
 </head>
 <body>
-<header class="navbar navbar-bright navbar-fixed-top" role="banner">
-    <div class="container">
-        <div class="navbar-header">
-            <a href="/" class="navbar-brand">Home</a>
-        </div>
-    </div>
-</header>
-
 
 <div class="container" data-ng-controller="registerCtrl">
     <h2>Some Useful Government Service</h2>
-    <form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate class="form-inline">
+    <form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate class="form-horizontal">
         <section >
             <div class="col-md-12">
-                <form class="form-horizontal" data-ng-submit="create()" novalidate>
                     <fieldset>
                         <div class="form-group">
                             <label class="control-label" for="name">Name</label>
@@ -66,7 +58,6 @@
                             <strong data-ng-bind="error"></strong>
                         </div>
                     </fieldset>
-                </form>
             </div>
         </section>
     </form>
