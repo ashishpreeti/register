@@ -6,7 +6,7 @@ angular.module('registerApp', ['ui.router','registerApp'])
         $urlRouterProvider.otherwise('/');
         $stateProvider.state('home', {
             url : '/',
-            template: '<h1>This is template </h1>'
+            templateUrl: 'views/home.html'
         });
 
     }]);
