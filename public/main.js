@@ -1,4 +1,3 @@
-var angular = require('angular');
 angular.module('registerApp', ['ui.router','registerApp'])
     .service('countryService', ['$http', '$q', require('./services/countryService')])
     .controller('registerCtrl', ['$scope', 'countryService', require('./controllers/registerCtrl')])
@@ -7,7 +6,7 @@ angular.module('registerApp', ['ui.router','registerApp'])
         $urlRouterProvider.otherwise('/');
         $stateProvider.state('home', {
             url : '/',
-            templateUrl: 'index.html'
+            template: '<h1>This is template </h1>'
         });
 
     }]);

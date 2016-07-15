@@ -9,9 +9,10 @@ var jsFiles = ['*.js', '*.html'];
 
 gulp.task('browserify', function () {
     return browserify([
-        './public/main.js',
+        './node_modules/angular/angular.min.js',
         './node_modules/angular-ui-router/release/angular-ui-router.min.js',
-        './public/js/bootstrap.min.js'
+        './node_modules/bootstrap/dist/js/bootstrap.min.js',
+        './public/main.js'
     ])
         .bundle()
         .pipe(source('bundle.js'))
