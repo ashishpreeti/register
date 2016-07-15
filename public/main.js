@@ -7,7 +7,8 @@ angular.module('registerApp', ['ui.router','registerApp'])
         $stateProvider
             .state('home', {
                 url : '/',
-                templateUrl: 'views/home.html'
+                templateUrl: 'views/home.html',
+                controller : 'registerCtrl'
             })
             .state('register',{
                 url : 'register',
