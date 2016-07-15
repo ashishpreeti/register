@@ -8,7 +8,11 @@ var source = require('vinyl-source-stream');
 var jsFiles = ['*.js', '*.html'];
 
 gulp.task('browserify', function () {
-    return browserify('./public/main.js')
+    return browserify([
+        './public/main.js',
+        './node_modules/angular-ui-router/release/angular-ui-router.min.js',
+        './public/js/bootstrap.min.js'
+    ])
         .bundle()
         .pipe(source('bundle.js'))
         .pipe(gulp.dest('./dist'));
