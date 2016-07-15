@@ -4,9 +4,14 @@ angular.module('registerApp', ['ui.router','registerApp'])
     .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
         // Categories state routing
         $urlRouterProvider.otherwise('/');
-        $stateProvider.state('home', {
-            url : '/',
-            templateUrl: 'views/home.html'
-        });
+        $stateProvider
+            .state('home', {
+                url : '/',
+                templateUrl: 'views/home.html'
+            })
+            .state('register',{
+                url : 'register',
+                template : '<h1>Application Submitted</h1>'
+            })
 
     }]);
