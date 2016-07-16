@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var mongodb = require('mongodb').MongoClient;
+var bodyParser = require('body-parser');
 var port = process.env.PORT || 5000;
 
 var routes = require('./server/routes/index');
@@ -10,6 +11,9 @@ var user = require('./server/routes/user');
 // view engine setup
 app.set('views', path.join(__dirname, '/server/views'));
 app.set('view engine', 'jade');
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static('app/views'));
 app.use(express.static('public'));
@@ -36,26 +40,6 @@ app.use(function(err, req, res, next) {
     });
 });
 
-
-var row = {
-    name: 'John Doe',
-    age: '25',
-    sex: 'Male',
-    country: 'UK'
-};
-
-app.get('/register', function(req, res){
-    console.log('submit to mongo db....');
-    var url = 'mongodb://localhost:27017/angulartest';
-    mongodb.connect(url, function (err, db) {
-        var collection = db.collection('userdata');
-        collection.insertOne(row, function (err, results) {
-            res.send(results);
-            db.close();
-        });
-    } );
-
-});
 
 app.listen(port, function(){
     console.log('running server on port ' + port);

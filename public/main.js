@@ -1,6 +1,6 @@
 angular.module('registerApp', ['ui.router','registerApp'])
-    .service('countryService', ['$http', '$q', require('./services/countryService')])
-    .controller('registerCtrl', ['$scope', 'countryService', require('./controllers/registerCtrl')])
+    .service('dataService', ['$http', '$q', require('./services/dataService')])
+    .controller('registerCtrl', ['$scope', 'dataService', require('./controllers/registerCtrl')])
     .config(['$logProvider','$stateProvider', '$urlRouterProvider', function($logProvider, $stateProvider, $urlRouterProvider) {
         // Categories state routing
         $urlRouterProvider.otherwise('/');

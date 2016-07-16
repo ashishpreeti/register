@@ -13,15 +13,15 @@
 
                     <div class="form-group">
                         <label>Sex:
-                            <input type="radio" name="gender" value="male" checked> Male
-                            <input type="radio" name="gender" value="female"> Female
+                            <input type="radio" data-ng-model="gender" name="gender" value="male" checked> Male
+                            <input type="radio" data-ng-model="gender" name="gender" value="female"> Female
                         </label>
                     </div>
 
 
                     <div class="form-group">
                         <label class="control-label" for="age">Age</label>
-                        <input type="text" id="age" name="age" class="form-control" data-ng-model="user.age" required maxlength="3" ng-minlength="1" ng-maxlength="3" size="3">
+                        <input type="text" id="age" name="age" class="form-control" data-ng-model="age" required maxlength="3" ng-minlength="1" ng-maxlength="3" size="3">
                         <p ng-show="userForm.age.$invalid && !userForm.age.$pristine" class="help-block">Age is required.</p>
                     </div>
 
