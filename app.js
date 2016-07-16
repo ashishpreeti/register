@@ -5,6 +5,7 @@ var mongodb = require('mongodb').MongoClient;
 var port = process.env.PORT || 5000;
 
 var routes = require('./server/routes/index');
+var user = require('./server/routes/user');
 
 // view engine setup
 app.set('views', path.join(__dirname, '/server/views'));
@@ -15,7 +16,8 @@ app.use(express.static('public'));
 app.use(express.static('dist'));
 app.use(express.static('node_modules'));
 
-app.use('/', routes);
+app.use('/api', routes);
+app.use('/api/user', user);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
