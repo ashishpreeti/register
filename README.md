@@ -1,5 +1,8 @@
 # register
 
+Start mongodb with command
+- mongod
+
 Run following commands
 To install all the dependencies 
 - npm install
