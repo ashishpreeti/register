@@ -27,7 +27,6 @@ function dataService($http, $q) {
             URL = '/api/user';
 
         function successCallback(response) {
-            console.log("trying to register users");
             def.resolve(response);
         }
 

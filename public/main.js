@@ -1,6 +1,7 @@
 angular.module('registerApp', ['ui.router','registerApp'])
     .service('dataService', ['$http', '$q', require('./services/dataService')])
-    .controller('registerCtrl', ['$scope', 'dataService', require('./controllers/registerCtrl')])
+    .service('userService', [require('./services/userService')])
+    .controller('registerCtrl', ['$scope', '$location', 'dataService', 'userService', require('./controllers/registerCtrl')])
     .config(['$logProvider','$stateProvider', '$urlRouterProvider', function($logProvider, $stateProvider, $urlRouterProvider) {
         // Categories state routing
         $urlRouterProvider.otherwise('/');
@@ -24,6 +25,17 @@ angular.module('registerApp', ['ui.router','registerApp'])
                 },
                 onExit: function ($log) {
                     $log.debug('Exiting the registered state.');
+                }
+            })
+            .state('submit',{
+                url : '/submit',
+                templateUrl: 'views/confirmation.html',
+                controller : 'registerCtrl',
+                onEnter: function ($log) {
+                    $log.debug('Entering the confirmation state.');
+                },
+                onExit: function ($log) {
+                    $log.debug('Exiting the confirmation state.');
                 }
             })
 

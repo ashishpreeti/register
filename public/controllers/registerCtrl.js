@@ -1,4 +1,6 @@
-function registerCtrl($scope, dataService) {
+function registerCtrl($scope, $location, dataService, userService) {
+    $scope.userName =  userService.getUser();
+
     function successCallback(response) {
         $scope.countries = response.data;
     }
@@ -12,7 +14,7 @@ function registerCtrl($scope, dataService) {
 
     $scope.submitForm = function(isValid) {
 
-        data = {
+        var user = {
             name    : $scope.name,
             gender  : $scope.gender,
             age     : $scope.age,
@@ -20,7 +22,9 @@ function registerCtrl($scope, dataService) {
         };
 
         function userCreated(response) {
-            $scope.userName = response.data;
+            var userName = response.config.data.name;
+            $scope.userName = userService.setUser(userName);
+            $location.path('/submit');
         }
 
         function userError(err) {
@@ -28,8 +32,7 @@ function registerCtrl($scope, dataService) {
         }
 
         if (isValid) {
-            console.log("Submitting data ...");
-            dataService.registerUser(data)
+            dataService.registerUser(user)
                 .then(userCreated, userError);
 
         }
